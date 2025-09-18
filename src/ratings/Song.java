@@ -26,8 +26,6 @@ public class Song extends Ratable{
     public void setSongID(String songID) {
         this.songID = songID;
     }
-
-
 }
 
 
