@@ -1,121 +1,476 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
+import { parseSongRatings, parseMovies, buildLibrary } from './dataUtils'
+import MediaCard from './components/MediaCard'
+import DetailModal from './components/DetailModal'
+import AddRatingModal from './components/AddRatingModal'
+import StatsBar from './components/StatsBar'
 
-function App() {
-  const [count, setCount] = useState(0)
+/* ── Dark mode ── */
+function useDarkMode() {
+  const [dark, setDark] = useState(() =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+  }, [dark])
+  return [dark, setDark]
+}
 
+/* ── Floating musical notes canvas ── */
+function useNotesCanvas(dark) {
+  useEffect(() => {
+    const canvas = document.getElementById('notes-canvas')
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+
+    // Musical note glyphs drawn as text
+    const GLYPHS = ['♩','♪','♫','♬','♭','♮','𝄞','𝄢']
+    const COLORS_LIGHT = ['#7C4DFF','#FF5C4D','#00C9A7','#FFB020','#2979FF','#F50057','#00C853']
+    const COLORS_DARK  = ['#A07BFF','#FF8A80','#4DDEC6','#FFCC5E','#5A9AFF','#FF5C8A','#4DDB85']
+
+    let W, H, notes
+    const COUNT = 28
+
+    function resize() {
+      W = canvas.width  = window.innerWidth
+      H = canvas.height = window.innerHeight
+    }
+
+    function makeNote() {
+      const colors = dark ? COLORS_DARK : COLORS_LIGHT
+      return {
+        x: Math.random() * W,
+        y: H + 20 + Math.random() * 200,
+        glyph: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: 14 + Math.random() * 22,
+        speed: 0.4 + Math.random() * 0.7,
+        drift: (Math.random() - 0.5) * 0.4,
+        rot: (Math.random() - 0.5) * 0.02,
+        angle: 0,
+        alpha: 0.12 + Math.random() * 0.22,
+      }
+    }
+
+    resize()
+    notes = Array.from({ length: COUNT }, makeNote).map(n => ({ ...n, y: Math.random() * H }))
+
+    let raf
+    function draw() {
+      ctx.clearRect(0, 0, W, H)
+      for (const n of notes) {
+        ctx.save()
+        ctx.globalAlpha = n.alpha
+        ctx.fillStyle = n.color
+        ctx.font = `${n.size}px serif`
+        ctx.translate(n.x, n.y)
+        ctx.rotate(n.angle)
+        ctx.fillText(n.glyph, 0, 0)
+        ctx.restore()
+
+        n.y -= n.speed
+        n.x += n.drift
+        n.angle += n.rot
+        if (n.y < -40) {
+          Object.assign(n, makeNote())
+          n.x = Math.random() * W
+        }
+      }
+      raf = requestAnimationFrame(draw)
+    }
+
+    draw()
+    window.addEventListener('resize', resize)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('resize', resize)
+    }
+  }, [dark])
+}
+
+/* ── Loader ── */
+function Loader() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    <div style={{
+      minHeight: '60vh', display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'center', gap: 16,
+    }}>
+      <div style={{
+        width: 42, height: 42,
+        border: '3px solid var(--border)',
+        borderTopColor: 'var(--coral)',
+        borderRadius: '50%',
+        animation: 'spin 0.8s linear infinite',
+      }} />
+      <p style={{ color: 'var(--text-secondary)', fontSize: 15 }}>Loading media library…</p>
+    </div>
   )
 }
 
-export default App
+/* ── Main ── */
+export default function App() {
+  const [dark, setDark] = useDarkMode()
+  useNotesCanvas(dark)
+
+  const [library, setLibrary] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError]     = useState(null)
+
+  const [search, setSearch] = useState('')
+  const [filter, setFilter] = useState('all')
+  const [sort, setSort]     = useState('bayes')
+  const [topK, setTopK]     = useState(50)
+
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [showAddModal, setShowAddModal] = useState(false)
+  const [activeView, setActiveView]     = useState('browse')
+
+  /* ── Load CSVs ── */
+  useEffect(() => {
+    async function load() {
+      try {
+        const base = import.meta.env.BASE_URL
+        const [songText, moviesText, movieRatingsText] = await Promise.all([
+          fetch(`${base}data/songratings.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
+          fetch(`${base}data/movies.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
+          fetch(`${base}data/movie_ratings.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
+        ])
+        const songs  = parseSongRatings(songText)
+        const movies = parseMovies(moviesText, movieRatingsText)
+        setLibrary(buildLibrary(songs, movies))
+      } catch (e) {
+        setError(`Could not load CSV data: ${e.message}. Make sure the 4 CSV files are in public/data/`)
+      } finally {
+        setLoading(false)
+      }
+    }
+    load()
+  }, [])
+
+  /* ── Add rating ── */
+  const handleAddRating = useCallback(({ itemId, reviewerId, rating }) => {
+    setLibrary(prev => {
+      const updated = prev.map(item => {
+        if (item.id !== itemId) return item
+        if (item.ratings.find(r => r.reviewer === reviewerId)) return item
+        const newRatings = [...item.ratings, { reviewer: reviewerId, value: rating }]
+        const vals = newRatings.map(r => r.value)
+        const n   = vals.length
+        const sum = vals.reduce((a, b) => a + b, 0)
+        return {
+          ...item,
+          ratings: newRatings, ratingValues: vals,
+          avgRating: sum / n,
+          bayesRating: (2 * 3 + sum) / (2 + n),
+          reviewCount: n,
+        }
+      })
+      return updated.sort((a, b) => b.bayesRating - a.bayesRating)
+    })
+  }, [])
+
+  /* ── Filtered list ── */
+  const displayed = useMemo(() => {
+    let items = library
+    if (activeView === 'top') items = items.slice(0, topK)
+    if (filter !== 'all')     items = items.filter(i => i.type === filter)
+    if (search.trim()) {
+      const q = search.trim().toLowerCase()
+      items = items.filter(i =>
+        i.title.toLowerCase().includes(q) ||
+        (i.artist && i.artist.toLowerCase().includes(q)) ||
+        (i.cast && i.cast.some(c => c.toLowerCase().includes(q)))
+      )
+    }
+    const s = [...items]
+    if (sort === 'bayes')   s.sort((a, b) => b.bayesRating - a.bayesRating)
+    if (sort === 'avg')     s.sort((a, b) => b.avgRating - a.avgRating)
+    if (sort === 'reviews') s.sort((a, b) => b.reviewCount - a.reviewCount)
+    if (sort === 'alpha')   s.sort((a, b) => a.title.localeCompare(b.title))
+    return s
+  }, [library, filter, search, sort, topK, activeView])
+
+  const rankMap = useMemo(() => {
+    const m = {}
+    library.forEach((item, i) => { m[item.id] = i + 1 })
+    return m
+  }, [library])
+
+  if (loading) return (
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Loader />
+    </div>
+  )
+
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 1 }}>
+
+      {/* ═══ NAV ═══ */}
+      <nav style={{
+        position: 'sticky', top: 0, zIndex: 100,
+        background: 'var(--bg-glass)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)',
+        borderBottom: '1px solid var(--border)',
+        padding: '0 28px',
+        display: 'flex', alignItems: 'center', gap: 18,
+        height: 64,
+      }}>
+        {/* Logo */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="13" fill="url(#lg)"/>
+            <text x="13" y="18" textAnchor="middle" fontSize="14" fill="white" fontFamily="serif">♫</text>
+            <defs>
+              <linearGradient id="lg" x1="0" y1="0" x2="26" y2="26">
+                <stop offset="0%" stopColor="#FF5C4D"/>
+                <stop offset="100%" stopColor="#7C4DFF"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span style={{
+            fontWeight: 800, fontSize: 19, letterSpacing: '-0.03em',
+            background: 'linear-gradient(135deg,var(--coral),var(--violet))',
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+          }}>MediaRater</span>
+        </div>
+
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: 4 }}>
+          {[['browse','Browse'],['top','Top K']].map(([v, l]) => (
+            <button key={v} onClick={() => setActiveView(v)} style={{
+              padding: '7px 16px', borderRadius: 99,
+              background: activeView === v ? 'var(--violet)' : 'transparent',
+              color: activeView === v ? '#fff' : 'var(--text-secondary)',
+              border: activeView === v ? '1px solid var(--violet)' : '1px solid transparent',
+              fontSize: 14, fontWeight: 600, cursor: 'pointer', transition: 'all 0.15s',
+            }}>{l}</button>
+          ))}
+        </div>
+
+        <div style={{ flex: 1 }} />
+
+        {/* Rate button */}
+        <button onClick={() => setShowAddModal(true)} style={{
+          display: 'flex', alignItems: 'center', gap: 6,
+          padding: '9px 20px', borderRadius: 99,
+          background: 'linear-gradient(135deg,var(--coral),var(--pink))',
+          color: '#fff', border: 'none', cursor: 'pointer',
+          fontSize: 14, fontWeight: 700,
+          boxShadow: '0 4px 16px rgba(255,92,77,0.35)',
+          transition: 'transform 0.15s, box-shadow 0.15s',
+        }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.04)'; e.currentTarget.style.boxShadow = '0 6px 22px rgba(255,92,77,0.45)' }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(255,92,77,0.35)' }}
+        >
+          + Rate
+        </button>
+
+        {/* Dark mode */}
+        <button onClick={() => setDark(d => !d)} title={dark ? 'Light mode' : 'Dark mode'} style={{
+          width: 40, height: 40, borderRadius: '50%',
+          background: 'var(--border)', border: '1px solid var(--border-strong)',
+          color: 'var(--text-primary)', fontSize: 18, cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          transition: 'background 0.15s',
+        }}
+          onMouseEnter={e => e.currentTarget.style.background = 'var(--border-strong)'}
+          onMouseLeave={e => e.currentTarget.style.background = 'var(--border)'}
+        >
+          {dark ? '☀' : '☾'}
+        </button>
+      </nav>
+
+      {/* ═══ MAIN ═══ */}
+      <main style={{ flex: 1, maxWidth: 1380, margin: '0 auto', width: '100%', padding: '36px 28px' }}>
+
+        {/* Error */}
+        {error && (
+          <div style={{
+            background: 'var(--coral-pale)', border: '1px solid var(--coral)',
+            borderRadius: 'var(--radius-md)', padding: '14px 18px', marginBottom: 24,
+            color: 'var(--coral)', fontSize: 15,
+          }}>
+            {error}
+          </div>
+        )}
+
+        {/* Hero */}
+        <div className="fade-up" style={{ marginBottom: 32 }}>
+          {/* Decorative colored bar */}
+          <div style={{
+            display: 'flex', gap: 6, marginBottom: 16,
+          }}>
+            {['var(--coral)','var(--violet)','var(--teal)','var(--amber)','var(--blue)'].map((c, i) => (
+              <div key={i} style={{ width: 32, height: 5, borderRadius: 99, background: c }} />
+            ))}
+          </div>
+
+          <h1 style={{
+            fontSize: 'clamp(32px, 5vw, 54px)',
+            fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.05,
+            color: 'var(--text-primary)', marginBottom: 10,
+          }}>
+            {activeView === 'browse' ? (
+              <>Media <span style={{
+                background: 'linear-gradient(135deg,var(--violet),var(--coral))',
+                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+              }}>Library</span></>
+            ) : (
+              <>Top <span style={{
+                background: 'linear-gradient(135deg,var(--amber),var(--coral))',
+                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+              }}>Rated</span></>
+            )}
+          </h1>
+          <p style={{ fontSize: 16, color: 'var(--text-secondary)', fontWeight: 400 }}>
+            {activeView === 'browse'
+              ? 'All movies and songs ranked by Bayesian average rating'
+              : `Top ${topK} items by Bayesian weighted score`}
+          </p>
+        </div>
+
+        {/* Stats */}
+        <StatsBar library={library} />
+
+        {/* Top-K slider */}
+        {activeView === 'top' && (
+          <div className="fade-up" style={{
+            background: 'linear-gradient(135deg, var(--amber-pale), var(--coral-pale))',
+            borderRadius: 'var(--radius-lg)', padding: '20px 24px', marginBottom: 28,
+            border: '1px solid var(--border)',
+            display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap',
+          }}>
+            <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)' }}>Show top</span>
+            <input type="range" min={5} max={Math.min(200, library.length)} step={5}
+              value={topK} onChange={e => setTopK(Number(e.target.value))}
+              style={{ flex: 1, minWidth: 120, accentColor: 'var(--amber)' }}
+            />
+            <span style={{
+              fontSize: 24, fontWeight: 900, color: 'var(--amber)',
+              minWidth: 48, textAlign: 'center',
+              background: 'var(--amber-pale)', padding: '4px 14px',
+              borderRadius: 99, border: '2px solid var(--amber)',
+            }}>{topK}</span>
+          </div>
+        )}
+
+        {/* Controls */}
+        <div className="fade-up fade-up-d1" style={{
+          display: 'flex', gap: 10, marginBottom: 32, flexWrap: 'wrap', alignItems: 'center',
+        }}>
+          {/* Search */}
+          <div style={{ position: 'relative', flex: '1 1 240px' }}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{
+              position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)',
+              color: 'var(--text-muted)',
+            }}>
+              <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <input type="text" placeholder="Search titles, artists, cast…"
+              value={search} onChange={e => setSearch(e.target.value)}
+              style={{
+                width: '100%', padding: '11px 16px 11px 38px',
+                borderRadius: 99, border: '1.5px solid var(--border-strong)',
+                background: 'var(--bg-card)', color: 'var(--text-primary)',
+                fontSize: 15, outline: 'none',
+                transition: 'border-color 0.15s, box-shadow 0.15s',
+                boxShadow: 'var(--shadow-sm)',
+              }}
+              onFocus={e => { e.currentTarget.style.borderColor = 'var(--violet)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(124,77,255,0.12)' }}
+              onBlur={e => { e.currentTarget.style.borderColor = 'var(--border-strong)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)' }}
+            />
+          </div>
+
+          {/* Type filter */}
+          <div style={{ display: 'flex', gap: 6, background: 'var(--bg-card)', padding: '4px', borderRadius: 99, border: '1px solid var(--border)' }}>
+            {[['all','All'],['movie','Movies'],['song','Songs']].map(([v, l]) => (
+              <button key={v} onClick={() => setFilter(v)} style={{
+                padding: '7px 16px', borderRadius: 99,
+                background: filter === v ? 'var(--violet)' : 'transparent',
+                color: filter === v ? '#fff' : 'var(--text-secondary)',
+                fontSize: 14, fontWeight: 600, cursor: 'pointer', transition: 'all 0.15s',
+                border: 'none',
+              }}>{l}</button>
+            ))}
+          </div>
+
+          {/* Sort */}
+          <select value={sort} onChange={e => setSort(e.target.value)} style={{
+            padding: '10px 16px', borderRadius: 99,
+            border: '1.5px solid var(--border-strong)',
+            background: 'var(--bg-card)', color: 'var(--text-primary)',
+            fontSize: 14, fontWeight: 500, cursor: 'pointer',
+            boxShadow: 'var(--shadow-sm)',
+          }}>
+            <option value="bayes">Bayesian Rating</option>
+            <option value="avg">Average Rating</option>
+            <option value="reviews">Most Reviews</option>
+            <option value="alpha">A to Z</option>
+          </select>
+
+          <span style={{ fontSize: 14, color: 'var(--text-muted)', fontWeight: 500 }}>
+            {displayed.length} item{displayed.length !== 1 ? 's' : ''}
+          </span>
+        </div>
+
+        {/* Grid */}
+        {displayed.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: '80px 20px', color: 'var(--text-muted)' }}>
+            <div style={{
+              width: 64, height: 64, borderRadius: '50%',
+              background: 'var(--violet-pale)', margin: '0 auto 20px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+            </div>
+            <p style={{ fontSize: 17, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>
+              No results found
+            </p>
+            <p style={{ fontSize: 14, color: 'var(--text-muted)' }}>
+              {library.length === 0 ? 'Check that CSV files are in public/data/' : 'Try a different search or filter'}
+            </p>
+          </div>
+        ) : (
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+            gap: 18,
+          }}>
+            {displayed.map((item, idx) => (
+              <div key={item.id} className="fade-up" style={{ animationDelay: `${Math.min(idx, 14) * 28}ms` }}>
+                <MediaCard
+                  item={item}
+                  rank={activeView === 'top' ? idx + 1 : rankMap[item.id]}
+                  onClick={setSelectedItem}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </main>
+
+      {/* ═══ FOOTER ═══ */}
+      <footer style={{
+        borderTop: '1px solid var(--border)', padding: '22px 28px',
+        textAlign: 'center', fontSize: 14,
+        color: 'var(--text-muted)', fontWeight: 500,
+      }}>
+        MediaRater · Bayesian ratings engine · {library.length.toLocaleString()} items in library
+      </footer>
+
+      {/* Modals */}
+      {selectedItem && <DetailModal item={selectedItem} onClose={() => setSelectedItem(null)} />}
+      {showAddModal && (
+        <AddRatingModal
+          library={library}
+          onClose={() => setShowAddModal(false)}
+          onAdd={(payload) => { handleAddRating(payload); setShowAddModal(false) }}
+        />
+      )}
+    </div>
+  )
+}
