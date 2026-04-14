@@ -98,3 +98,36 @@
   .fade-up-d2 { animation-delay: 0.10s; }
   .fade-up-d3 { animation-delay: 0.15s; }
   .fade-up-d4 { animation-delay: 0.20s; }
+
+/* ── Gradient text helpers (CSS approach is more reliable than inline for -webkit-background-clip) ── */
+.text-gradient {
+  display: inline;
+  background-image: linear-gradient(135deg, var(--violet), var(--coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-amber {
+  display: inline;
+  background-image: linear-gradient(135deg, var(--amber), var(--coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-logo {
+  display: inline;
+  background-image: linear-gradient(135deg, var(--coral), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Mobile responsive ── */
+@media (max-width: 640px) {
+  body { overflow-x: hidden; }
+  select { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+}
