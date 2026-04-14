@@ -1,6 +1,500 @@
-song1,artist1,title1,Bob,4
-song1,artist1,title1,Prince,3
-song2,artist2,title2,Mike,5
-song2,artist2,title2,Faiza,3
-song2,artist2,title2,Ajinkya,2
-song3,artist3,title3,Dhruv,5
+Blinding Lights,The Weeknd,After Hours,Bob,1
+Blinding Lights,The Weeknd,After Hours,Prince,2
+Blinding Lights,The Weeknd,After Hours,Mike,3
+Blinding Lights,The Weeknd,After Hours,Faiza,4
+Blinding Lights,The Weeknd,After Hours,Ajinkya,5
+Shape of You,Ed Sheeran,Divide,Bob,2
+Shape of You,Ed Sheeran,Divide,Prince,3
+Shape of You,Ed Sheeran,Divide,Mike,4
+Shape of You,Ed Sheeran,Divide,Faiza,5
+Shape of You,Ed Sheeran,Divide,Ajinkya,1
+Rolling in the Deep,Adele,21,Bob,3
+Rolling in the Deep,Adele,21,Prince,4
+Rolling in the Deep,Adele,21,Mike,5
+Rolling in the Deep,Adele,21,Faiza,1
+Rolling in the Deep,Adele,21,Ajinkya,2
+Uptown Funk,Mark Ronson ft. Bruno Mars,Uptown Special,Bob,4
+Uptown Funk,Mark Ronson ft. Bruno Mars,Uptown Special,Prince,5
+Uptown Funk,Mark Ronson ft. Bruno Mars,Uptown Special,Mike,1
+Uptown Funk,Mark Ronson ft. Bruno Mars,Uptown Special,Faiza,2
+Uptown Funk,Mark Ronson ft. Bruno Mars,Uptown Special,Ajinkya,3
+Someone Like You,Adele,21,Bob,5
+Someone Like You,Adele,21,Prince,1
+Someone Like You,Adele,21,Mike,2
+Someone Like You,Adele,21,Faiza,3
+Someone Like You,Adele,21,Ajinkya,4
+Bad Guy,Billie Eilish,"When We All Fall Asleep, Where Do We Go?",Bob,1
+Bad Guy,Billie Eilish,"When We All Fall Asleep, Where Do We Go?",Prince,2
+Bad Guy,Billie Eilish,"When We All Fall Asleep, Where Do We Go?",Mike,3
+Bad Guy,Billie Eilish,"When We All Fall Asleep, Where Do We Go?",Faiza,4
+Bad Guy,Billie Eilish,"When We All Fall Asleep, Where Do We Go?",Ajinkya,5
+Thinking Out Loud,Ed Sheeran,x,Bob,2
+Thinking Out Loud,Ed Sheeran,x,Prince,3
+Thinking Out Loud,Ed Sheeran,x,Mike,4
+Thinking Out Loud,Ed Sheeran,x,Faiza,5
+Thinking Out Loud,Ed Sheeran,x,Ajinkya,1
+Lose Yourself,Eminem,8 Mile,Bob,3
+Lose Yourself,Eminem,8 Mile,Prince,4
+Lose Yourself,Eminem,8 Mile,Mike,5
+Lose Yourself,Eminem,8 Mile,Faiza,1
+Lose Yourself,Eminem,8 Mile,Ajinkya,2
+Can’t Stop the Feeling!,Justin Timberlake,Trolls,Bob,4
+Can’t Stop the Feeling!,Justin Timberlake,Trolls,Prince,5
+Can’t Stop the Feeling!,Justin Timberlake,Trolls,Mike,1
+Can’t Stop the Feeling!,Justin Timberlake,Trolls,Faiza,2
+Can’t Stop the Feeling!,Justin Timberlake,Trolls,Ajinkya,3
+Levitating,Dua Lipa,Future Nostalgia,Bob,5
+Levitating,Dua Lipa,Future Nostalgia,Prince,1
+Levitating,Dua Lipa,Future Nostalgia,Mike,2
+Levitating,Dua Lipa,Future Nostalgia,Faiza,3
+Levitating,Dua Lipa,Future Nostalgia,Ajinkya,4
+Stay,The Kid LAROI & Justin Bieber,F*CK LOVE 3: OVER YOU,Bob,1
+Stay,The Kid LAROI & Justin Bieber,F*CK LOVE 3: OVER YOU,Prince,2
+Stay,The Kid LAROI & Justin Bieber,F*CK LOVE 3: OVER YOU,Mike,3
+Stay,The Kid LAROI & Justin Bieber,F*CK LOVE 3: OVER YOU,Faiza,4
+Stay,The Kid LAROI & Justin Bieber,F*CK LOVE 3: OVER YOU,Ajinkya,5
+As It Was,Harry Styles,Harry's House,Bob,2
+As It Was,Harry Styles,Harry's House,Prince,3
+As It Was,Harry Styles,Harry's House,Mike,4
+As It Was,Harry Styles,Harry's House,Faiza,5
+As It Was,Harry Styles,Harry's House,Ajinkya,1
+Watermelon Sugar,Harry Styles,Fine Line,Bob,3
+Watermelon Sugar,Harry Styles,Fine Line,Prince,4
+Watermelon Sugar,Harry Styles,Fine Line,Mike,5
+Watermelon Sugar,Harry Styles,Fine Line,Faiza,1
+Watermelon Sugar,Harry Styles,Fine Line,Ajinkya,2
+Old Town Road,Lil Nas X,7 EP,Bob,4
+Old Town Road,Lil Nas X,7 EP,Prince,5
+Old Town Road,Lil Nas X,7 EP,Mike,1
+Old Town Road,Lil Nas X,7 EP,Faiza,2
+Old Town Road,Lil Nas X,7 EP,Ajinkya,3
+Sunflower,Post Malone & Swae Lee,Spider-Man: Into the Spider-Verse,Bob,5
+Sunflower,Post Malone & Swae Lee,Spider-Man: Into the Spider-Verse,Prince,1
+Sunflower,Post Malone & Swae Lee,Spider-Man: Into the Spider-Verse,Mike,2
+Sunflower,Post Malone & Swae Lee,Spider-Man: Into the Spider-Verse,Faiza,3
+Sunflower,Post Malone & Swae Lee,Spider-Man: Into the Spider-Verse,Ajinkya,4
+Happy,Pharrell Williams,Girl,Bob,1
+Happy,Pharrell Williams,Girl,Prince,2
+Happy,Pharrell Williams,Girl,Mike,3
+Happy,Pharrell Williams,Girl,Faiza,4
+Happy,Pharrell Williams,Girl,Ajinkya,5
+Royals,Lorde,Pure Heroine,Bob,2
+Royals,Lorde,Pure Heroine,Prince,3
+Royals,Lorde,Pure Heroine,Mike,4
+Royals,Lorde,Pure Heroine,Faiza,5
+Royals,Lorde,Pure Heroine,Ajinkya,1
+Firework,Katy Perry,Teenage Dream,Bob,3
+Firework,Katy Perry,Teenage Dream,Prince,4
+Firework,Katy Perry,Teenage Dream,Mike,5
+Firework,Katy Perry,Teenage Dream,Faiza,1
+Firework,Katy Perry,Teenage Dream,Ajinkya,2
+Shake It Off,Taylor Swift,1989,Bob,4
+Shake It Off,Taylor Swift,1989,Prince,5
+Shake It Off,Taylor Swift,1989,Mike,1
+Shake It Off,Taylor Swift,1989,Faiza,2
+Shake It Off,Taylor Swift,1989,Ajinkya,3
+Blank Space,Taylor Swift,1989,Bob,5
+Blank Space,Taylor Swift,1989,Prince,1
+Blank Space,Taylor Swift,1989,Mike,2
+Blank Space,Taylor Swift,1989,Faiza,3
+Blank Space,Taylor Swift,1989,Ajinkya,4
+Anti-Hero,Taylor Swift,Midnights,Bob,1
+Anti-Hero,Taylor Swift,Midnights,Prince,2
+Anti-Hero,Taylor Swift,Midnights,Mike,3
+Anti-Hero,Taylor Swift,Midnights,Faiza,4
+Anti-Hero,Taylor Swift,Midnights,Ajinkya,5
+Cruel Summer,Taylor Swift,Lover,Bob,2
+Cruel Summer,Taylor Swift,Lover,Prince,3
+Cruel Summer,Taylor Swift,Lover,Mike,4
+Cruel Summer,Taylor Swift,Lover,Faiza,5
+Cruel Summer,Taylor Swift,Lover,Ajinkya,1
+Halo,Beyoncé,I Am... Sasha Fierce,Bob,3
+Halo,Beyoncé,I Am... Sasha Fierce,Prince,4
+Halo,Beyoncé,I Am... Sasha Fierce,Mike,5
+Halo,Beyoncé,I Am... Sasha Fierce,Faiza,1
+Halo,Beyoncé,I Am... Sasha Fierce,Ajinkya,2
+Single Ladies,Beyoncé,I Am... Sasha Fierce,Bob,4
+Single Ladies,Beyoncé,I Am... Sasha Fierce,Prince,5
+Single Ladies,Beyoncé,I Am... Sasha Fierce,Mike,1
+Single Ladies,Beyoncé,I Am... Sasha Fierce,Faiza,2
+Single Ladies,Beyoncé,I Am... Sasha Fierce,Ajinkya,3
+Crazy in Love,Beyoncé ft. Jay-Z,Dangerously in Love,Bob,5
+Crazy in Love,Beyoncé ft. Jay-Z,Dangerously in Love,Prince,1
+Crazy in Love,Beyoncé ft. Jay-Z,Dangerously in Love,Mike,2
+Crazy in Love,Beyoncé ft. Jay-Z,Dangerously in Love,Faiza,3
+Crazy in Love,Beyoncé ft. Jay-Z,Dangerously in Love,Ajinkya,4
+HUMBLE.,Kendrick Lamar,DAMN.,Bob,1
+HUMBLE.,Kendrick Lamar,DAMN.,Prince,2
+HUMBLE.,Kendrick Lamar,DAMN.,Mike,3
+HUMBLE.,Kendrick Lamar,DAMN.,Faiza,4
+HUMBLE.,Kendrick Lamar,DAMN.,Ajinkya,5
+Alright,Kendrick Lamar,To Pimp a Butterfly,Bob,2
+Alright,Kendrick Lamar,To Pimp a Butterfly,Prince,3
+Alright,Kendrick Lamar,To Pimp a Butterfly,Mike,4
+Alright,Kendrick Lamar,To Pimp a Butterfly,Faiza,5
+Alright,Kendrick Lamar,To Pimp a Butterfly,Ajinkya,1
+SICKO MODE,Travis Scott,Astroworld,Bob,3
+SICKO MODE,Travis Scott,Astroworld,Prince,4
+SICKO MODE,Travis Scott,Astroworld,Mike,5
+SICKO MODE,Travis Scott,Astroworld,Faiza,1
+SICKO MODE,Travis Scott,Astroworld,Ajinkya,2
+Goosebumps,Travis Scott,Birds in the Trap Sing McKnight,Bob,4
+Goosebumps,Travis Scott,Birds in the Trap Sing McKnight,Prince,5
+Goosebumps,Travis Scott,Birds in the Trap Sing McKnight,Mike,1
+Goosebumps,Travis Scott,Birds in the Trap Sing McKnight,Faiza,2
+Goosebumps,Travis Scott,Birds in the Trap Sing McKnight,Ajinkya,3
+God's Plan,Drake,Scorpion,Bob,5
+God's Plan,Drake,Scorpion,Prince,1
+God's Plan,Drake,Scorpion,Mike,2
+God's Plan,Drake,Scorpion,Faiza,3
+God's Plan,Drake,Scorpion,Ajinkya,4
+Hotline Bling,Drake,Views,Bob,1
+Hotline Bling,Drake,Views,Prince,2
+Hotline Bling,Drake,Views,Mike,3
+Hotline Bling,Drake,Views,Faiza,4
+Hotline Bling,Drake,Views,Ajinkya,5
+One Dance,Drake,Views,Bob,2
+One Dance,Drake,Views,Prince,3
+One Dance,Drake,Views,Mike,4
+One Dance,Drake,Views,Faiza,5
+One Dance,Drake,Views,Ajinkya,1
+In My Feelings,Drake,Scorpion,Bob,3
+In My Feelings,Drake,Scorpion,Prince,4
+In My Feelings,Drake,Scorpion,Mike,5
+In My Feelings,Drake,Scorpion,Faiza,1
+In My Feelings,Drake,Scorpion,Ajinkya,2
+Despacito,Luis Fonsi & Daddy Yankee,Vida,Bob,4
+Despacito,Luis Fonsi & Daddy Yankee,Vida,Prince,5
+Despacito,Luis Fonsi & Daddy Yankee,Vida,Mike,1
+Despacito,Luis Fonsi & Daddy Yankee,Vida,Faiza,2
+Despacito,Luis Fonsi & Daddy Yankee,Vida,Ajinkya,3
+Hips Don’t Lie,Shakira ft. Wyclef Jean,"Oral Fixation, Vol. 2",Bob,5
+Hips Don’t Lie,Shakira ft. Wyclef Jean,"Oral Fixation, Vol. 2",Prince,1
+Hips Don’t Lie,Shakira ft. Wyclef Jean,"Oral Fixation, Vol. 2",Mike,2
+Hips Don’t Lie,Shakira ft. Wyclef Jean,"Oral Fixation, Vol. 2",Faiza,3
+Hips Don’t Lie,Shakira ft. Wyclef Jean,"Oral Fixation, Vol. 2",Ajinkya,4
+Waka Waka,Shakira,Sale el Sol,Bob,1
+Waka Waka,Shakira,Sale el Sol,Prince,2
+Waka Waka,Shakira,Sale el Sol,Mike,3
+Waka Waka,Shakira,Sale el Sol,Faiza,4
+Waka Waka,Shakira,Sale el Sol,Ajinkya,5
+Smooth,Santana ft. Rob Thomas,Supernatural,Bob,2
+Smooth,Santana ft. Rob Thomas,Supernatural,Prince,3
+Smooth,Santana ft. Rob Thomas,Supernatural,Mike,4
+Smooth,Santana ft. Rob Thomas,Supernatural,Faiza,5
+Smooth,Santana ft. Rob Thomas,Supernatural,Ajinkya,1
+Boulevard of Broken Dreams,Green Day,American Idiot,Bob,3
+Boulevard of Broken Dreams,Green Day,American Idiot,Prince,4
+Boulevard of Broken Dreams,Green Day,American Idiot,Mike,5
+Boulevard of Broken Dreams,Green Day,American Idiot,Faiza,1
+Boulevard of Broken Dreams,Green Day,American Idiot,Ajinkya,2
+American Idiot,Green Day,American Idiot,Bob,4
+American Idiot,Green Day,American Idiot,Prince,5
+American Idiot,Green Day,American Idiot,Mike,1
+American Idiot,Green Day,American Idiot,Faiza,2
+American Idiot,Green Day,American Idiot,Ajinkya,3
+Mr. Brightside,The Killers,Hot Fuss,Bob,5
+Mr. Brightside,The Killers,Hot Fuss,Prince,1
+Mr. Brightside,The Killers,Hot Fuss,Mike,2
+Mr. Brightside,The Killers,Hot Fuss,Faiza,3
+Mr. Brightside,The Killers,Hot Fuss,Ajinkya,4
+Somebody Told Me,The Killers,Hot Fuss,Bob,1
+Somebody Told Me,The Killers,Hot Fuss,Prince,2
+Somebody Told Me,The Killers,Hot Fuss,Mike,3
+Somebody Told Me,The Killers,Hot Fuss,Faiza,4
+Somebody Told Me,The Killers,Hot Fuss,Ajinkya,5
+Viva La Vida,Coldplay,Viva la Vida or Death and All His Friends,Bob,2
+Viva La Vida,Coldplay,Viva la Vida or Death and All His Friends,Prince,3
+Viva La Vida,Coldplay,Viva la Vida or Death and All His Friends,Mike,4
+Viva La Vida,Coldplay,Viva la Vida or Death and All His Friends,Faiza,5
+Viva La Vida,Coldplay,Viva la Vida or Death and All His Friends,Ajinkya,1
+Yellow,Coldplay,Parachutes,Bob,3
+Yellow,Coldplay,Parachutes,Prince,4
+Yellow,Coldplay,Parachutes,Mike,5
+Yellow,Coldplay,Parachutes,Faiza,1
+Yellow,Coldplay,Parachutes,Ajinkya,2
+Clocks,Coldplay,A Rush of Blood to the Head,Bob,4
+Clocks,Coldplay,A Rush of Blood to the Head,Prince,5
+Clocks,Coldplay,A Rush of Blood to the Head,Mike,1
+Clocks,Coldplay,A Rush of Blood to the Head,Faiza,2
+Clocks,Coldplay,A Rush of Blood to the Head,Ajinkya,3
+Fix You,Coldplay,X&Y,Bob,5
+Fix You,Coldplay,X&Y,Prince,1
+Fix You,Coldplay,X&Y,Mike,2
+Fix You,Coldplay,X&Y,Faiza,3
+Fix You,Coldplay,X&Y,Ajinkya,4
+Smells Like Teen Spirit,Nirvana,Nevermind,Bob,1
+Smells Like Teen Spirit,Nirvana,Nevermind,Prince,2
+Smells Like Teen Spirit,Nirvana,Nevermind,Mike,3
+Smells Like Teen Spirit,Nirvana,Nevermind,Faiza,4
+Smells Like Teen Spirit,Nirvana,Nevermind,Ajinkya,5
+Come As You Are,Nirvana,Nevermind,Bob,2
+Come As You Are,Nirvana,Nevermind,Prince,3
+Come As You Are,Nirvana,Nevermind,Mike,4
+Come As You Are,Nirvana,Nevermind,Faiza,5
+Come As You Are,Nirvana,Nevermind,Ajinkya,1
+Wonderwall,Oasis,(What's the Story) Morning Glory?,Bob,3
+Wonderwall,Oasis,(What's the Story) Morning Glory?,Prince,4
+Wonderwall,Oasis,(What's the Story) Morning Glory?,Mike,5
+Wonderwall,Oasis,(What's the Story) Morning Glory?,Faiza,1
+Wonderwall,Oasis,(What's the Story) Morning Glory?,Ajinkya,2
+Don’t Look Back in Anger,Oasis,(What's the Story) Morning Glory?,Bob,4
+Don’t Look Back in Anger,Oasis,(What's the Story) Morning Glory?,Prince,5
+Don’t Look Back in Anger,Oasis,(What's the Story) Morning Glory?,Mike,1
+Don’t Look Back in Anger,Oasis,(What's the Story) Morning Glory?,Faiza,2
+Don’t Look Back in Anger,Oasis,(What's the Story) Morning Glory?,Ajinkya,3
+Bohemian Rhapsody,Queen,A Night at the Opera,Bob,5
+Bohemian Rhapsody,Queen,A Night at the Opera,Prince,1
+Bohemian Rhapsody,Queen,A Night at the Opera,Mike,2
+Bohemian Rhapsody,Queen,A Night at the Opera,Faiza,3
+Bohemian Rhapsody,Queen,A Night at the Opera,Ajinkya,4
+Don’t Stop Me Now,Queen,Jazz,Bob,1
+Don’t Stop Me Now,Queen,Jazz,Prince,2
+Don’t Stop Me Now,Queen,Jazz,Mike,3
+Don’t Stop Me Now,Queen,Jazz,Faiza,4
+Don’t Stop Me Now,Queen,Jazz,Ajinkya,5
+Another One Bites the Dust,Queen,The Game,Bob,2
+Another One Bites the Dust,Queen,The Game,Prince,3
+Another One Bites the Dust,Queen,The Game,Mike,4
+Another One Bites the Dust,Queen,The Game,Faiza,5
+Another One Bites the Dust,Queen,The Game,Ajinkya,1
+Billie Jean,Michael Jackson,Thriller,Bob,3
+Billie Jean,Michael Jackson,Thriller,Prince,4
+Billie Jean,Michael Jackson,Thriller,Mike,5
+Billie Jean,Michael Jackson,Thriller,Faiza,1
+Billie Jean,Michael Jackson,Thriller,Ajinkya,2
+Beat It,Michael Jackson,Thriller,Bob,4
+Beat It,Michael Jackson,Thriller,Prince,5
+Beat It,Michael Jackson,Thriller,Mike,1
+Beat It,Michael Jackson,Thriller,Faiza,2
+Beat It,Michael Jackson,Thriller,Ajinkya,3
+Thriller,Michael Jackson,Thriller,Bob,5
+Thriller,Michael Jackson,Thriller,Prince,1
+Thriller,Michael Jackson,Thriller,Mike,2
+Thriller,Michael Jackson,Thriller,Faiza,3
+Thriller,Michael Jackson,Thriller,Ajinkya,4
+Purple Rain,Prince,Purple Rain,Bob,1
+Purple Rain,Prince,Purple Rain,Prince,2
+Purple Rain,Prince,Purple Rain,Mike,3
+Purple Rain,Prince,Purple Rain,Faiza,4
+Purple Rain,Prince,Purple Rain,Ajinkya,5
+When Doves Cry,Prince,Purple Rain,Bob,2
+When Doves Cry,Prince,Purple Rain,Prince,3
+When Doves Cry,Prince,Purple Rain,Mike,4
+When Doves Cry,Prince,Purple Rain,Faiza,5
+When Doves Cry,Prince,Purple Rain,Ajinkya,1
+Kiss,Prince,Parade,Bob,3
+Kiss,Prince,Parade,Prince,4
+Kiss,Prince,Parade,Mike,5
+Kiss,Prince,Parade,Faiza,1
+Kiss,Prince,Parade,Ajinkya,2
+Like a Prayer,Madonna,Like a Prayer,Bob,4
+Like a Prayer,Madonna,Like a Prayer,Prince,5
+Like a Prayer,Madonna,Like a Prayer,Mike,1
+Like a Prayer,Madonna,Like a Prayer,Faiza,2
+Like a Prayer,Madonna,Like a Prayer,Ajinkya,3
+Material Girl,Madonna,Like a Virgin,Bob,5
+Material Girl,Madonna,Like a Virgin,Prince,1
+Material Girl,Madonna,Like a Virgin,Mike,2
+Material Girl,Madonna,Like a Virgin,Faiza,3
+Material Girl,Madonna,Like a Virgin,Ajinkya,4
+Take on Me,a-ha,Hunting High and Low,Bob,1
+Take on Me,a-ha,Hunting High and Low,Prince,2
+Take on Me,a-ha,Hunting High and Low,Mike,3
+Take on Me,a-ha,Hunting High and Low,Faiza,4
+Take on Me,a-ha,Hunting High and Low,Ajinkya,5
+Africa,Toto,Toto IV,Bob,2
+Africa,Toto,Toto IV,Prince,3
+Africa,Toto,Toto IV,Mike,4
+Africa,Toto,Toto IV,Faiza,5
+Africa,Toto,Toto IV,Ajinkya,1
+Sweet Child O' Mine,Guns N' Roses,Appetite for Destruction,Bob,3
+Sweet Child O' Mine,Guns N' Roses,Appetite for Destruction,Prince,4
+Sweet Child O' Mine,Guns N' Roses,Appetite for Destruction,Mike,5
+Sweet Child O' Mine,Guns N' Roses,Appetite for Destruction,Faiza,1
+Sweet Child O' Mine,Guns N' Roses,Appetite for Destruction,Ajinkya,2
+November Rain,Guns N' Roses,Use Your Illusion I,Bob,4
+November Rain,Guns N' Roses,Use Your Illusion I,Prince,5
+November Rain,Guns N' Roses,Use Your Illusion I,Mike,1
+November Rain,Guns N' Roses,Use Your Illusion I,Faiza,2
+November Rain,Guns N' Roses,Use Your Illusion I,Ajinkya,3
+Livin’ on a Prayer,Bon Jovi,Slippery When Wet,Bob,5
+Livin’ on a Prayer,Bon Jovi,Slippery When Wet,Prince,1
+Livin’ on a Prayer,Bon Jovi,Slippery When Wet,Mike,2
+Livin’ on a Prayer,Bon Jovi,Slippery When Wet,Faiza,3
+Livin’ on a Prayer,Bon Jovi,Slippery When Wet,Ajinkya,4
+I Want It That Way,Backstreet Boys,Millennium,Bob,1
+I Want It That Way,Backstreet Boys,Millennium,Prince,2
+I Want It That Way,Backstreet Boys,Millennium,Mike,3
+I Want It That Way,Backstreet Boys,Millennium,Faiza,4
+I Want It That Way,Backstreet Boys,Millennium,Ajinkya,5
+Bye Bye Bye,*NSYNC,No Strings Attached,Bob,2
+Bye Bye Bye,*NSYNC,No Strings Attached,Prince,3
+Bye Bye Bye,*NSYNC,No Strings Attached,Mike,4
+Bye Bye Bye,*NSYNC,No Strings Attached,Faiza,5
+Bye Bye Bye,*NSYNC,No Strings Attached,Ajinkya,1
+Toxic,Britney Spears,In the Zone,Bob,3
+Toxic,Britney Spears,In the Zone,Prince,4
+Toxic,Britney Spears,In the Zone,Mike,5
+Toxic,Britney Spears,In the Zone,Faiza,1
+Toxic,Britney Spears,In the Zone,Ajinkya,2
+Oops!... I Did It Again,Britney Spears,Oops!... I Did It Again,Bob,4
+Oops!... I Did It Again,Britney Spears,Oops!... I Did It Again,Prince,5
+Oops!... I Did It Again,Britney Spears,Oops!... I Did It Again,Mike,1
+Oops!... I Did It Again,Britney Spears,Oops!... I Did It Again,Faiza,2
+Oops!... I Did It Again,Britney Spears,Oops!... I Did It Again,Ajinkya,3
+Poker Face,Lady Gaga,The Fame,Bob,5
+Poker Face,Lady Gaga,The Fame,Prince,1
+Poker Face,Lady Gaga,The Fame,Mike,2
+Poker Face,Lady Gaga,The Fame,Faiza,3
+Poker Face,Lady Gaga,The Fame,Ajinkya,4
+Bad Romance,Lady Gaga,The Fame Monster,Bob,1
+Bad Romance,Lady Gaga,The Fame Monster,Prince,2
+Bad Romance,Lady Gaga,The Fame Monster,Mike,3
+Bad Romance,Lady Gaga,The Fame Monster,Faiza,4
+Bad Romance,Lady Gaga,The Fame Monster,Ajinkya,5
+Just Dance,Lady Gaga,The Fame,Bob,2
+Just Dance,Lady Gaga,The Fame,Prince,3
+Just Dance,Lady Gaga,The Fame,Mike,4
+Just Dance,Lady Gaga,The Fame,Faiza,5
+Just Dance,Lady Gaga,The Fame,Ajinkya,1
+Starboy,The Weeknd ft. Daft Punk,Starboy,Bob,3
+Starboy,The Weeknd ft. Daft Punk,Starboy,Prince,4
+Starboy,The Weeknd ft. Daft Punk,Starboy,Mike,5
+Starboy,The Weeknd ft. Daft Punk,Starboy,Faiza,1
+Starboy,The Weeknd ft. Daft Punk,Starboy,Ajinkya,2
+The Hills,The Weeknd,Beauty Behind the Madness,Bob,4
+The Hills,The Weeknd,Beauty Behind the Madness,Prince,5
+The Hills,The Weeknd,Beauty Behind the Madness,Mike,1
+The Hills,The Weeknd,Beauty Behind the Madness,Faiza,2
+The Hills,The Weeknd,Beauty Behind the Madness,Ajinkya,3
+Can’t Feel My Face,The Weeknd,Beauty Behind the Madness,Bob,5
+Can’t Feel My Face,The Weeknd,Beauty Behind the Madness,Prince,1
+Can’t Feel My Face,The Weeknd,Beauty Behind the Madness,Mike,2
+Can’t Feel My Face,The Weeknd,Beauty Behind the Madness,Faiza,3
+Can’t Feel My Face,The Weeknd,Beauty Behind the Madness,Ajinkya,4
+No Tears Left to Cry,Ariana Grande,Sweetener,Bob,1
+No Tears Left to Cry,Ariana Grande,Sweetener,Prince,2
+No Tears Left to Cry,Ariana Grande,Sweetener,Mike,3
+No Tears Left to Cry,Ariana Grande,Sweetener,Faiza,4
+No Tears Left to Cry,Ariana Grande,Sweetener,Ajinkya,5
+7 rings,Ariana Grande,"Thank U, Next",Bob,2
+7 rings,Ariana Grande,"Thank U, Next",Prince,3
+7 rings,Ariana Grande,"Thank U, Next",Mike,4
+7 rings,Ariana Grande,"Thank U, Next",Faiza,5
+7 rings,Ariana Grande,"Thank U, Next",Ajinkya,1
+"Thank U, Next",Ariana Grande,"Thank U, Next",Bob,3
+"Thank U, Next",Ariana Grande,"Thank U, Next",Prince,4
+"Thank U, Next",Ariana Grande,"Thank U, Next",Mike,5
+"Thank U, Next",Ariana Grande,"Thank U, Next",Faiza,1
+"Thank U, Next",Ariana Grande,"Thank U, Next",Ajinkya,2
+Drivers License,Olivia Rodrigo,SOUR,Bob,4
+Drivers License,Olivia Rodrigo,SOUR,Prince,5
+Drivers License,Olivia Rodrigo,SOUR,Mike,1
+Drivers License,Olivia Rodrigo,SOUR,Faiza,2
+Drivers License,Olivia Rodrigo,SOUR,Ajinkya,3
+Good 4 U,Olivia Rodrigo,SOUR,Bob,5
+Good 4 U,Olivia Rodrigo,SOUR,Prince,1
+Good 4 U,Olivia Rodrigo,SOUR,Mike,2
+Good 4 U,Olivia Rodrigo,SOUR,Faiza,3
+Good 4 U,Olivia Rodrigo,SOUR,Ajinkya,4
+Deja Vu,Olivia Rodrigo,SOUR,Bob,1
+Deja Vu,Olivia Rodrigo,SOUR,Prince,2
+Deja Vu,Olivia Rodrigo,SOUR,Mike,3
+Deja Vu,Olivia Rodrigo,SOUR,Faiza,4
+Deja Vu,Olivia Rodrigo,SOUR,Ajinkya,5
+Flowers,Miley Cyrus,Endless Summer Vacation,Bob,2
+Flowers,Miley Cyrus,Endless Summer Vacation,Prince,3
+Flowers,Miley Cyrus,Endless Summer Vacation,Mike,4
+Flowers,Miley Cyrus,Endless Summer Vacation,Faiza,5
+Flowers,Miley Cyrus,Endless Summer Vacation,Ajinkya,1
+Party in the U.S.A.,Miley Cyrus,The Time of Our Lives,Bob,3
+Party in the U.S.A.,Miley Cyrus,The Time of Our Lives,Prince,4
+Party in the U.S.A.,Miley Cyrus,The Time of Our Lives,Mike,5
+Party in the U.S.A.,Miley Cyrus,The Time of Our Lives,Faiza,1
+Party in the U.S.A.,Miley Cyrus,The Time of Our Lives,Ajinkya,2
+We Can’t Stop,Miley Cyrus,Bangerz,Bob,4
+We Can’t Stop,Miley Cyrus,Bangerz,Prince,5
+We Can’t Stop,Miley Cyrus,Bangerz,Mike,1
+We Can’t Stop,Miley Cyrus,Bangerz,Faiza,2
+We Can’t Stop,Miley Cyrus,Bangerz,Ajinkya,3
+Teenage Dream,Katy Perry,Teenage Dream,Bob,5
+Teenage Dream,Katy Perry,Teenage Dream,Prince,1
+Teenage Dream,Katy Perry,Teenage Dream,Mike,2
+Teenage Dream,Katy Perry,Teenage Dream,Faiza,3
+Teenage Dream,Katy Perry,Teenage Dream,Ajinkya,4
+Dark Horse,Katy Perry ft. Juicy J,Prism,Bob,1
+Dark Horse,Katy Perry ft. Juicy J,Prism,Prince,2
+Dark Horse,Katy Perry ft. Juicy J,Prism,Mike,3
+Dark Horse,Katy Perry ft. Juicy J,Prism,Faiza,4
+Dark Horse,Katy Perry ft. Juicy J,Prism,Ajinkya,5
+Roar,Katy Perry,Prism,Bob,2
+Roar,Katy Perry,Prism,Prince,3
+Roar,Katy Perry,Prism,Mike,4
+Roar,Katy Perry,Prism,Faiza,5
+Roar,Katy Perry,Prism,Ajinkya,1
+Counting Stars,OneRepublic,Native,Bob,3
+Counting Stars,OneRepublic,Native,Prince,4
+Counting Stars,OneRepublic,Native,Mike,5
+Counting Stars,OneRepublic,Native,Faiza,1
+Counting Stars,OneRepublic,Native,Ajinkya,2
+Apologize,OneRepublic,Dreaming Out Loud,Bob,4
+Apologize,OneRepublic,Dreaming Out Loud,Prince,5
+Apologize,OneRepublic,Dreaming Out Loud,Mike,1
+Apologize,OneRepublic,Dreaming Out Loud,Faiza,2
+Apologize,OneRepublic,Dreaming Out Loud,Ajinkya,3
+Radioactive,Imagine Dragons,Night Visions,Bob,5
+Radioactive,Imagine Dragons,Night Visions,Prince,1
+Radioactive,Imagine Dragons,Night Visions,Mike,2
+Radioactive,Imagine Dragons,Night Visions,Faiza,3
+Radioactive,Imagine Dragons,Night Visions,Ajinkya,4
+Demons,Imagine Dragons,Night Visions,Bob,1
+Demons,Imagine Dragons,Night Visions,Prince,2
+Demons,Imagine Dragons,Night Visions,Mike,3
+Demons,Imagine Dragons,Night Visions,Faiza,4
+Demons,Imagine Dragons,Night Visions,Ajinkya,5
+Believer,Imagine Dragons,Evolve,Bob,2
+Believer,Imagine Dragons,Evolve,Prince,3
+Believer,Imagine Dragons,Evolve,Mike,4
+Believer,Imagine Dragons,Evolve,Faiza,5
+Believer,Imagine Dragons,Evolve,Ajinkya,1
+Thunder,Imagine Dragons,Evolve,Bob,3
+Thunder,Imagine Dragons,Evolve,Prince,4
+Thunder,Imagine Dragons,Evolve,Mike,5
+Thunder,Imagine Dragons,Evolve,Faiza,1
+Thunder,Imagine Dragons,Evolve,Ajinkya,2
+Closer,The Chainsmokers ft. Halsey,Collage,Bob,4
+Closer,The Chainsmokers ft. Halsey,Collage,Prince,5
+Closer,The Chainsmokers ft. Halsey,Collage,Mike,1
+Closer,The Chainsmokers ft. Halsey,Collage,Faiza,2
+Closer,The Chainsmokers ft. Halsey,Collage,Ajinkya,3
+Something Just Like This,The Chainsmokers & Coldplay,Memories...Do Not Open,Bob,5
+Something Just Like This,The Chainsmokers & Coldplay,Memories...Do Not Open,Prince,1
+Something Just Like This,The Chainsmokers & Coldplay,Memories...Do Not Open,Mike,2
+Something Just Like This,The Chainsmokers & Coldplay,Memories...Do Not Open,Faiza,3
+Something Just Like This,The Chainsmokers & Coldplay,Memories...Do Not Open,Ajinkya,4
+Senorita,Shawn Mendes & Camila Cabello,Romance,Bob,1
+Senorita,Shawn Mendes & Camila Cabello,Romance,Prince,2
+Senorita,Shawn Mendes & Camila Cabello,Romance,Mike,3
+Senorita,Shawn Mendes & Camila Cabello,Romance,Faiza,4
+Senorita,Shawn Mendes & Camila Cabello,Romance,Ajinkya,5
+Havana,Camila Cabello ft. Young Thug,Camila,Bob,2
+Havana,Camila Cabello ft. Young Thug,Camila,Prince,3
+Havana,Camila Cabello ft. Young Thug,Camila,Mike,4
+Havana,Camila Cabello ft. Young Thug,Camila,Faiza,5
+Havana,Camila Cabello ft. Young Thug,Camila,Ajinkya,1
+Stitches,Shawn Mendes,Handwritten,Bob,3
+Stitches,Shawn Mendes,Handwritten,Prince,4
+Stitches,Shawn Mendes,Handwritten,Mike,5
+Stitches,Shawn Mendes,Handwritten,Faiza,1
+Stitches,Shawn Mendes,Handwritten,Ajinkya,2
+All of Me,John Legend,Love in the Future,Bob,4
+All of Me,John Legend,Love in the Future,Prince,5
+All of Me,John Legend,Love in the Future,Mike,1
+All of Me,John Legend,Love in the Future,Faiza,2
+All of Me,John Legend,Love in the Future,Ajinkya,3
+Stay With Me,Sam Smith,In the Lonely Hour,Bob,5
+Stay With Me,Sam Smith,In the Lonely Hour,Prince,1
+Stay With Me,Sam Smith,In the Lonely Hour,Mike,2
+Stay With Me,Sam Smith,In the Lonely Hour,Faiza,3
+Stay With Me,Sam Smith,In the Lonely Hour,Ajinkya,4

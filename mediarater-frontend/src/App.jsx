@@ -147,9 +147,9 @@ export default function App() {
       try {
         const base = import.meta.env.BASE_URL
         const [songText, moviesText, movieRatingsText] = await Promise.all([
-          fetch(`${base}data/songratings.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
-          fetch(`${base}data/movies.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
-          fetch(`${base}data/movie_ratings.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
+          fetch(`${base}songratings.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
+          fetch(`${base}movies.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
+          fetch(`${base}movie_ratings.csv`).then(r => { if (!r.ok) throw new Error(r.statusText); return r.text() }),
         ])
         const songs  = parseSongRatings(songText)
         const movies = parseMovies(moviesText, movieRatingsText)
