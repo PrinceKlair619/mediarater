@@ -135,7 +135,7 @@ export default function App() {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState('all')
   const [sort, setSort]     = useState('bayes')
-  const [topK, setTopK]     = useState(50)
+  const TOP_K = 50
 
   const [selectedItem, setSelectedItem] = useState(null)
   const [showAddModal, setShowAddModal] = useState(false)
@@ -198,7 +198,7 @@ export default function App() {
   /* ── Filtered list ── */
   const displayed = useMemo(() => {
     let items = library
-    if (activeView === 'top') items = items.slice(0, topK)
+    if (activeView === 'top') items = items.slice(0, TOP_K)
     if (filter !== 'all')     items = items.filter(i => i.type === filter)
     if (search.trim()) {
       const q = search.trim().toLowerCase()
@@ -214,7 +214,7 @@ export default function App() {
     if (sort === 'reviews') s.sort((a, b) => b.reviewCount - a.reviewCount)
     if (sort === 'alpha')   s.sort((a, b) => a.title.localeCompare(b.title))
     return s
-  }, [library, filter, search, sort, topK, activeView])
+  }, [library, filter, search, sort, activeView])
 
   const rankMap = useMemo(() => {
     const m = {}
@@ -402,25 +402,18 @@ export default function App() {
         {/* Stats */}
         <StatsBar library={library} />
 
-        {/* Top-K slider */}
+        {/* Top 50 banner */}
         {activeView === 'top' && (
           <div className="fade-up" style={{
             background: 'linear-gradient(135deg, var(--amber-pale), var(--coral-pale))',
-            borderRadius: 'var(--radius-lg)', padding: '18px 20px', marginBottom: 24,
+            borderRadius: 'var(--radius-lg)', padding: '14px 20px', marginBottom: 24,
             border: '1px solid var(--border)',
-            display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap',
+            display: 'flex', alignItems: 'center', gap: 12,
           }}>
-            <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)' }}>Show top</span>
-            <input type="range" min={5} max={Math.min(200, library.length)} step={5}
-              value={topK} onChange={e => setTopK(Number(e.target.value))}
-              style={{ flex: 1, minWidth: 100, accentColor: 'var(--amber)' }}
-            />
-            <span style={{
-              fontSize: 22, fontWeight: 900, color: 'var(--amber)',
-              minWidth: 44, textAlign: 'center',
-              background: 'var(--amber-pale)', padding: '4px 12px',
-              borderRadius: 99, border: '2px solid var(--amber)',
-            }}>{topK}</span>
+            <span style={{ fontSize: 22 }}>🏆</span>
+            <span style={{ fontSize: 14, color: 'var(--text-secondary)' }}>
+              The <strong style={{ color: 'var(--amber)' }}>50 highest-rated</strong> items across your library, ranked by Bayesian weighted score — a formula that accounts for both rating quality and review count to prevent items with very few ratings from dominating.
+            </span>
           </div>
         )}
 

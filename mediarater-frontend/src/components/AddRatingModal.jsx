@@ -37,29 +37,44 @@ function SearchableSelect({ mediaType, library, onSelect }) {
     clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(async () => {
       try {
-        const media  = mediaType === 'movie' ? 'movie' : 'music'
-        const entity = mediaType === 'movie' ? 'movie' : 'song'
-        const url    = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=${media}&entity=${entity}&limit=20`
-        const res    = await fetch(url)
-        const data   = await res.json()
+        // Movies: omit entity so iTunes returns full results, then filter by kind
+        // Songs: use entity=song to stay precise
+        const url = mediaType === 'movie'
+          ? `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=movie&country=US&limit=30`
+          : `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music&entity=song&country=US&limit=25`
+
+        const res  = await fetch(url)
+        const data = await res.json()
 
         const localIds = new Set(localItems.map(i => i.id))
-        const fresh = data.results
-          .filter(r => r.trackName && !localIds.has(`itunes-${r.trackId}`))
-          .slice(0, 10)
-          .map(r => ({
-            id:          `itunes-${r.trackId}`,
-            type:        mediaType,
-            title:       r.trackName,
-            artist:      mediaType === 'song'  ? r.artistName : undefined,
-            cast:        mediaType === 'movie' ? [r.artistName].filter(Boolean) : undefined,
-            ratings:     [],
-            ratingValues:[],
-            avgRating:   0,
-            bayesRating: 0,
-            reviewCount: 0,
-            fromItunes:  true,
-          }))
+        const fresh = (data.results || [])
+          .filter(r => {
+            // Movies must be feature-movie kind; songs must be song kind
+            if (mediaType === 'movie' && r.kind !== 'feature-movie') return false
+            if (mediaType === 'song'  && r.kind !== 'song')          return false
+            const title = r.trackName || r.collectionName
+            if (!title) return false
+            const id = `itunes-${r.trackId || r.collectionId}`
+            return !localIds.has(id)
+          })
+          .slice(0, 12)
+          .map(r => {
+            const title = r.trackName || r.collectionName
+            const uid   = `itunes-${r.trackId || r.collectionId}`
+            return {
+              id:           uid,
+              type:         mediaType,
+              title,
+              artist:       mediaType === 'song'  ? r.artistName : undefined,
+              cast:         mediaType === 'movie' ? [r.artistName].filter(Boolean) : undefined,
+              ratings:      [],
+              ratingValues: [],
+              avgRating:    0,
+              bayesRating:  0,
+              reviewCount:  0,
+              fromItunes:   true,
+            }
+          })
         setItunes(fresh)
       } catch {
         setItunes([])
